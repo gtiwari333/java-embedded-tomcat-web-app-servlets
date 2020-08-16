@@ -9,7 +9,7 @@
 
     <properties>
         <tomcat.version>10.0.0-M7</tomcat.version>
-        <java.version>11</java.version>
+        <java.version>11</java.version> <!-- runs with 1.8 as well -->
         <start-class>launcher.AllServlets</start-class>
         <!--<start-class>launcher.InlineServlet</start-class>-->
     </properties>
@@ -58,7 +58,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
+                    <source>1.8</source>
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
@@ -68,6 +68,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <configuration>
                     <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+                    <generateUniqueDependencyReducedPom>false</generateUniqueDependencyReducedPom>
                 </configuration>
                 <executions>
                     <execution>
