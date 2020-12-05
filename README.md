@@ -1,4 +1,4 @@
-# Java Web Application using Embedded Tomcat
+# Example of Vanilla Java Web Application(Servlet based) using Embedded Tomcat Container
 
 
 #### How to run?
