@@ -8,8 +8,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <tomcat.version>10.0.0-M7</tomcat.version>
-        <java.version>11</java.version> <!-- runs with 1.8 as well -->
+        <tomcat.version>10.1.0-M5</tomcat.version>
+        <java.version>17</java.version> <!-- runs with 1.8 as well -->
         <start-class>launcher.AllServlets</start-class>
         <!--<start-class>launcher.InlineServlet</start-class>-->
     </properties>

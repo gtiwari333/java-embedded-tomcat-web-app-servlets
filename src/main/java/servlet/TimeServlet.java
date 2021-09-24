@@ -17,7 +17,7 @@ public class TimeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (ServletOutputStream out = resp.getOutputStream()) {
-            out.write(("Server Time: " + LocalDateTime.now().toString()).getBytes());
+            out.write(("Server Time: " + LocalDateTime.now()).getBytes());
         }
     }
 }
