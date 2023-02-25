@@ -16,11 +16,11 @@ class MySimulation extends Simulation {
   //scenario
   val scn = scenario("open pages one by one")
     .exec(TestScenarios.jsonPage())
-    .pause(1.milliseconds, 50.milliseconds)
+    .pause(1.milliseconds, 5.milliseconds)
     .exec(TestScenarios.helloPage())
-    .pause(1.milliseconds, 50.milliseconds)
+    .pause(1.milliseconds, 5.milliseconds)
     .exec(TestScenarios.timePage())
-    .pause(1.milliseconds, 50.milliseconds)
+    .pause(1.milliseconds, 5.milliseconds)
 
   before {
     //data prep
@@ -30,7 +30,7 @@ class MySimulation extends Simulation {
     scn.inject(
       //load scenario
       nothingFor(1 seconds),
-      atOnceUsers(5),
+      atOnceUsers(5000),
       rampUsers(Environment.maxUsers) during Environment.rampUpTime
     ).protocols(httpConfig.inferHtmlResources()) // inferHtmlResources will fetch everything on the page (JS, CSS, images etc.)
   )

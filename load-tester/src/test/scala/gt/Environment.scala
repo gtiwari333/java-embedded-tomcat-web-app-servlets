@@ -9,9 +9,10 @@ object Environment {
     .orElse(Option(System.getProperty(name)))
     .getOrElse(alt)
 
-  val rampUpTime: FiniteDuration = envOrElse("rampUpTIme", "10").toInt seconds
-  val maxUsers: Int = envOrElse("users", "50").toInt
+  val rampUpTime: FiniteDuration = envOrElse("rampUpTIme", "15").toInt seconds
+  val maxUsers: Int = envOrElse("users", "100000").toInt //OK with virtual
 
+//  val maxUsers: Int = envOrElse("users", "70000").toInt
 
   val baseUrl = "http://localhost:8080"
   val jsonPage = "/json"
