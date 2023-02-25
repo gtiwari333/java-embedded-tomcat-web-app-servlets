@@ -10,6 +10,7 @@ import mjson.Json;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "JsonServlet", urlPatterns = {"/json"})
 public class JsonServlet extends HttpServlet {
@@ -18,7 +19,9 @@ public class JsonServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (ServletOutputStream out = resp.getOutputStream()) {
 
-            String json = Json.object().set("time", LocalDateTime.now()).toString();
+            String json = Json.object()
+                    .set("time", LocalDateTime.now().format(DateTimeFormatter.ISO_DATE))
+                    .toString();
 
             resp.setHeader("Content-Type", "application/json");
             out.write(json.getBytes());

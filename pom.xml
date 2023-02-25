@@ -8,8 +8,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <tomcat.version>10.1.0-M5</tomcat.version>
-        <java.version>17</java.version> <!-- runs with 1.8 as well -->
+        <tomcat.version>11.0.0-M3</tomcat.version>
+        <java.version>19</java.version> <!-- runs with 1.8 as well -->
         <start-class>launcher.AllServlets</start-class>
         <!--<start-class>launcher.InlineServlet</start-class>-->
     </properties>
@@ -58,8 +58,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>${java.version}</target>
+                    <source>19</source>
+                    <target>19</target>
+                    <compilerArgs>--enable-preview</compilerArgs>
                 </configuration>
             </plugin>
 
