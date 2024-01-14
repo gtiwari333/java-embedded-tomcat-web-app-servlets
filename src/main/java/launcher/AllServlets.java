@@ -21,6 +21,7 @@ public class AllServlets { //scans and registers all servlets
     static boolean disableJsp = false;
 
     public static void main(String[] args) throws Exception {
+        long start = System.currentTimeMillis();
         System.setProperty("org.apache.catalina.startup.EXIT_ON_INIT_FAILURE", "true");
 
         Tomcat tomcat = new Tomcat();
@@ -32,11 +33,12 @@ public class AllServlets { //scans and registers all servlets
         registerWebXml(tomcat);
 
         //use virtual thread
-//        tomcat.getConnector().getProtocolHandler().setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+        tomcat.getConnector().getProtocolHandler().setExecutor(Executors.newVirtualThreadPerTaskExecutor());
 
         //finally start!
         tomcat.getConnector(); //we need to manually call in tomcat 9+
         tomcat.start();
+        System.out.println("Started in " + (System.currentTimeMillis() - start) + " ms");
         tomcat.getServer().await();
     }
 
