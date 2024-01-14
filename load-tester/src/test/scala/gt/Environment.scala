@@ -1,7 +1,6 @@
 package gt
 
 import scala.concurrent.duration._
-import scala.language.postfixOps
 
 object Environment {
 
@@ -10,12 +9,12 @@ object Environment {
     .getOrElse(alt)
 
   val rampUpTime: FiniteDuration = envOrElse("rampUpTIme", "15").toInt seconds
-  val maxUsers: Int = envOrElse("users", "100000").toInt //OK with virtual
+//  val maxUsers: Int = envOrElse("users", "70000").toInt //OK with virtual
 
-//  val maxUsers: Int = envOrElse("users", "70000").toInt
+  val maxUsers: Int = envOrElse("users", "3000").toInt //with platform thread
 
   val baseUrl = "http://localhost:8080"
-  val jsonPage = "/json"
-  val helloPage = "/hello"
-  val timePage = "/time"
+  val jsonPage = "/json?delay=1000"
+  val helloPage = "/hello?delay=200"
+  val timePage = "/time?delay=500"
 }

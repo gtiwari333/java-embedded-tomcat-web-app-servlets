@@ -33,7 +33,7 @@ public class AllServlets { //scans and registers all servlets
         registerWebXml(tomcat);
 
         //use virtual thread
-        tomcat.getConnector().getProtocolHandler().setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+//        tomcat.getConnector().getProtocolHandler().setExecutor(Executors.newVirtualThreadPerTaskExecutor());
 
         //finally start!
         tomcat.getConnector(); //we need to manually call in tomcat 9+

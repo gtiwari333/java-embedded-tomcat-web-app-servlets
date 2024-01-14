@@ -7,7 +7,6 @@ import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 
 import scala.concurrent.duration.DurationInt
-import scala.language.postfixOps
 
 class MySimulation extends Simulation {
 
@@ -16,11 +15,11 @@ class MySimulation extends Simulation {
   //scenario
   val scn = scenario("open pages one by one")
     .exec(TestScenarios.jsonPage())
-    .pause(1.milliseconds, 5.milliseconds)
+    .pause(5.milliseconds, 50.milliseconds)
     .exec(TestScenarios.helloPage())
-    .pause(1.milliseconds, 5.milliseconds)
+    .pause(5.milliseconds, 50.milliseconds)
     .exec(TestScenarios.timePage())
-    .pause(1.milliseconds, 5.milliseconds)
+    .pause(5.milliseconds, 100.milliseconds)
 
   before {
     //data prep
